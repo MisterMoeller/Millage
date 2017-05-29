@@ -1,0 +1,28 @@
+Dorf:
+Hier entstehen Nahrung, Arbeiter, Kultur- und Forschungspunkte
+Auf der alten Mine Aufgebaut. Die Tiefe der alten Mine bestimmt das maximale Ausbaulevel des Gebäudes.
+Anfangs nur wenige Felder bebaubar, Später mehr durch Forschung freischaltbar
+
+Mine:
+Hier gibt es Felder die abgetragen werden können um eine Ebene Tiefer zu kommen.
+Beim Abtragen entstehen Bauressourcen
+Abtragen geht manuell durch tippen oder automatisch durch Arbeiter.
+Beim "durchbrechen" einer Schicht gibt es eine Chance auf ein Relikt.
+Tiefere Schichten sind schwerer zu durchbrechen.
+
+Forschung:
+Hier werden aus Relikten Forschungen
+Ein Relikt schaltet eine Forschung frei, die dann mit Forschunspunkten aus dem Dorf entwicklent werden kann.
+Forschungen
+- schalten Gebäude frei oder verbessern sie.
+- machen unbebaubares Land bebaubar
+- bringen Komfortfunktionen wie Statistiken
+- machen Arbeiter in der Mine effizienter
+
+
+Gebäude:
+- Farm
+- Haus
+- Labor/Schule
+- Kirche/Museum
+- Aura-Gebäude (Bar, Cafe)
