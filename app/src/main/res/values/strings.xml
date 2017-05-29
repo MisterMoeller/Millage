@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Millage</string>
+    <string name="Resourcen">Resourcen</string>
+    <string name="material">Baumaterial</string>
+    <string name="food">Nahrung</string>
+    <string name="worker">Arbeiter</string>
+    <string name="science">Forschung</string>
+    <string name="culture">Kultur</string>
+
 </resources>

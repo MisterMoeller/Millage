@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="resourcen_textsize">26sp</dimen>
+
+    <!-- Breite der Spalten im Resourcenbereich-->
+    <dimen name="name_width">30dp</dimen>
+    <dimen name="amount_width">30dp</dimen>
+    <dimen name="income_width">30dp</dimen>
+
+    <!-- Dorf-grid-->
+    <dimen name="space_height">50dp</dimen>
+    <dimen name="space_width">50dp</dimen>
+
+</resources>
