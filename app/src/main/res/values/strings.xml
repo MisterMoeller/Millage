@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Millage</string>
+
+    <!-- Ressourcenbereich oben -->
     <string name="Resourcen">Resourcen</string>
     <string name="material">Baumaterial</string>
     <string name="food">Nahrung</string>

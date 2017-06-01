@@ -1,370 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical">
 
-
-    <ScrollView
-        android:id="@+id/scrollView"
+    <!-- Resourcen-Tabelle -->
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="@string/Resourcen"
+        android:textSize="@dimen/resourcen_textsize" />
 
-        <!-- Scrollview kann nur mit einem Child-Layout umgehen. Deswegen nochmal ein Layout außen rum -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <!-- Namen der Resourcen -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/name_width"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical">
-            <!-- Resourcen-Tabelle -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:gravity="center"
-                android:text="@string/Resourcen"
-                android:textSize="@dimen/resourcen_textsize" />
-            <LinearLayout
+                android:text="@string/material" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:text="@string/food" />
 
-                <!-- Namen der Resourcen -->
-                <LinearLayout
-                    android:layout_width="@dimen/name_width"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/material" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/food" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/worker" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/science" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/culture" />
-
-                </LinearLayout>
-
-                <!-- Menge der Resourcen -->
-                <LinearLayout
-                    android:layout_width="@dimen/amount_width"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/amount_material"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Menge" />
-
-                    <TextView
-                        android:id="@+id/amount_food"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Menge" />
-
-                    <TextView
-                        android:id="@+id/amount_worker"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Menge" />
-
-                    <TextView
-                        android:id="@+id/amount_science"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Menge" />
-
-                    <TextView
-                        android:id="@+id/amount_culture"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Menge" />
-                </LinearLayout>
-
-                <!-- Einkommen der Resourcen -->
-                <LinearLayout
-                    android:layout_width="@dimen/income_width"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/income_material"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Einkommen" />
-
-                    <TextView
-                        android:id="@+id/income_food"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Einkommen" />
-
-                    <TextView
-                        android:id="@+id/income_worker"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Einkommen" />
-
-                    <TextView
-                        android:id="@+id/income_science"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Einkommen" />
-
-                    <TextView
-                        android:id="@+id/income_culture"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Einkommen" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Dorf-Grid-->
-            <RelativeLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_height="wrap_content"
+                android:text="@string/worker" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/science" />
 
-                    <!-- Reihe 1-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height"/>
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-
-                    </LinearLayout>
-
-                    <!-- Reihe 2-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-
-                    </LinearLayout>
-
-                    <!-- Reihe 3-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-
-                    </LinearLayout>
-
-                    <!-- Reihe 4-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-
-                    </LinearLayout>
-
-                    <!-- Reihe 5-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-
-                    </LinearLayout>
-
-                    <!-- Reihe 6-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-                        <Button
-                            android:layout_width="@dimen/space_width"
-                            android:layout_height="@dimen/space_height" />
-
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/culture" />
 
         </LinearLayout>
-    </ScrollView>
+
+        <!-- Menge der Resourcen -->
+        <LinearLayout
+            android:layout_width="@dimen/amount_width"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/amount_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/amount_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/amount_worker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/amount_science"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/amount_culture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Einkommen der Resourcen -->
+        <LinearLayout
+            android:layout_width="@dimen/income_width"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/income_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/income_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/income_worker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/income_science"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/income_culture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Dorf-Grid-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <GridView
+            android:id="@+id/grid_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="10dp"
+            android:numColumns="6"
+            android:scrollbars="vertical"
+            android:verticalSpacing="7dp" />
+    </RelativeLayout>
 </LinearLayout>
+
