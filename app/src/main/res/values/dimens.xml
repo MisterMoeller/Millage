@@ -8,7 +8,15 @@
     <dimen name="income_width">30dp</dimen>
 
     <!-- Dorf-grid-->
-    <dimen name="plot_height">50dp</dimen>
-    <dimen name="plot_width">50dp</dimen>
+    <dimen name="village_plot_height">60dp</dimen>
+    <dimen name="village_plot_width">60dp</dimen>
+    <dimen name="verticalSpacing_village">8dp</dimen>
+    <dimen name="village_textsize">10sp</dimen>
+
+    <!-- Mine-grid-->
+    <dimen name="mine_plot_height">60dp</dimen>
+    <dimen name="mine_plot_width">60dp</dimen>
+    <dimen name="verticalSpacing_mine">8dp</dimen>
+    <dimen name="mine_textsize">10sp</dimen>
 
 </resources>

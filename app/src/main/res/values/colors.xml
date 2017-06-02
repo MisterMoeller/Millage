@@ -6,7 +6,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="background_slot">#DDDDDD</color>
+    <!-- Hintergrundfarbe der Dorf- und Minenslots -->
+    <color name="village_background_slot">#DDDDDD</color>
+    <color name="mine_background_slot">#a52a2a</color>
+
 
 
 </resources>

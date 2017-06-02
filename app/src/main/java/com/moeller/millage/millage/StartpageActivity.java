@@ -1,7 +1,13 @@
 package com.moeller.millage.millage;
 
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -23,22 +29,36 @@ import android.widget.TextView;
         gleichen Activity und wir müssen da keine Daten hin-und-herschieben.
 */
 public class StartpageActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.startpage);
 
-        //Initialer Aufbau des Spielfelds
-        String[] blueprint = {"Farm", "Schule", "Universität", "4", "5", "6", "7", "", "9", "10", "11", "12", "13", "Schule", "Universität", "4", "5", "6", "7", "", "9", "10", "11", "12", "13", "Schule", "Universität", "4", "5", "6", "7", "", "9", "10", "11", "12", "13", "Schule", "Universität", "4", "5", "6", "7", "", "9", "10", "11", "12", "13"};
-        BuildVillage(blueprint);
+        super.onCreate(savedInstanceState);
+        Log.d("StartpageActivity", "Start ONCREATE");
+
+        setContentView(R.layout.startpage);
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        // Create an adapter that knows which fragment should be shown on each page
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
+
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
 
         //Starten des ewigen Kreislaufs
         ressources res = new ressources();
-        Cycle(res);
+
+
+        Tick(res);
+
+
+
     }
 
+    void Tick (ressources res){
+        Log.d("Startpage_Activity", "Cylce_Start");
 
-    private void Cycle(ressources res) {
         //Einkommen auszahlen
         res.Income();
 
@@ -73,20 +93,8 @@ public class StartpageActivity extends AppCompatActivity {
 
         TextView income_culture = (TextView) findViewById(R.id.income_culture);
         income_culture.setText(String.valueOf(res.income_culture));
-
-
     }
-
-    private void BuildVillage(String[] blueprint) {
-        /*
-           Wird mit einem Plan für das neue Spielfeld aufgerufen (ein Stringarray)
-           und aktualisiert die Anzeige auf dem Bildschirm
-	*/
-        GridView gridview = (GridView) findViewById(R.id.grid_layout);
-        gridview.setAdapter(new ArrayAdapter<String>(this, R.layout.textview_for_gridview, blueprint));
-
-    }
-
-
 }
+
+
 
