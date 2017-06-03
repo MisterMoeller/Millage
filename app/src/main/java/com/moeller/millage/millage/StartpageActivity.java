@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.moeller.millage.millage.mine.Tickable;
+
 /*
         Die Dorf-matrix wird aus einem Stringarray aufgebaut. Die Idee ist, nach einer Änderung am Dorf
         den betreffenden String im Array zu ändern und dann das Spielfeld aus dem veränderten Array
@@ -28,7 +30,9 @@ import android.widget.TextView;
         Die verschiedenen Screens können wir mit Fragments machen. Das bedeutet sie sind alle in der
         gleichen Activity und wir müssen da keine Daten hin-und-herschieben.
 */
-public class StartpageActivity extends AppCompatActivity {
+public class StartpageActivity extends AppCompatActivity implements Tickable{
+
+    private Ressource
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,9 @@ public class StartpageActivity extends AppCompatActivity {
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
 
+        // initialize Ressources
+        initRessouces();
+
         //Starten des ewigen Kreislaufs
         ressources res = new ressources();
 
@@ -56,11 +63,11 @@ public class StartpageActivity extends AppCompatActivity {
 
     }
 
-    void Tick (ressources res){
+    public void tick (){
         Log.d("Startpage_Activity", "Cylce_Start");
 
         //Einkommen auszahlen
-        res.Income();
+        Ressources.awardAllIncome();
 
         //Amount-Werte aktualisieren
         TextView amount_material = (TextView) findViewById(R.id.amount_material);
