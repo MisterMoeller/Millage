@@ -28,6 +28,8 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
 
     private HashMap<String, Ressource> ressources = new HashMap<>();
 
+    private TickTimer tickTimer = new TickTimer();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -47,8 +49,11 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
         // initialize Ressources
         initRessouces();
 
-        //Starten des ewigen Kreislaufs
-        tick();
+        // Tickables dem Prozess übergeben
+        tickTimer.add(this);
+
+        // Starten des ewigen Kreislaufs
+        tickTimer.run();
     }
 
     private void initRessouces(){
@@ -60,7 +65,7 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
     }
 
     public void tick (){
-        Log.d("Startpage_Activity", "Cylce_Start");
+        Log.i("Startpage_Activity", "Tick");
 
         //Einkommen auszahlen
         for(Ressource res : ressources.values()){
