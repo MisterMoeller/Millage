@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
+import com.moeller.millage.millage.mine.MineTile;
+
 
 public class MineFragment extends Fragment {
 
@@ -23,20 +25,20 @@ public class MineFragment extends Fragment {
         super.onStart();
         Log.d("onStart", "ONSTART");
         //Initialer Aufbau des Spielfelds
-        String[] blueprint = {"Stein", "Stein", "Stein", "Stein", "Stein", "Stein", "Stein", "Eisen", "Stein", "Stein", "Stein", "Stein", "Stein", "Stein", "Eisen", "Stein", "Stein", "Stein", "Stein", "Stein", "Stein", "Eisen", "Stein", "Stein", "Stein", "Stein", "Stein", "Stein", "Eisen"};
+        MineTile[] blueprint = {new MineTile(1), new MineTile(1), new MineTile(1), new MineTile(1), new MineTile(1), new MineTile(1), new MineTile(1), new MineTile(1), new MineTile(1)};
         Buildmine(blueprint);
 
     }
 
 
 
-    public void Buildmine(String[] blueprint) {
+    public void Buildmine(MineTile[] blueprint) {
         /*
            Wird mit einem Plan für das neue Spielfeld aufgerufen (ein Stringarray)
            und aktualisiert die Anzeige auf dem Bildschirm
         */
         GridView gridview = (GridView) getView().findViewById(R.id.grid_layout_mine);
-        gridview.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.textview_for_gridview_mine, blueprint));
+        gridview.setAdapter(new ArrayAdapter<MineTile>(getActivity(), R.layout.textview_for_gridview_mine, blueprint));
 
     }
 
