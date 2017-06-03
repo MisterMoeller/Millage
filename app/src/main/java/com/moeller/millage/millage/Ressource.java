@@ -10,6 +10,12 @@ import android.widget.TextView;
  * represents a ressource
  */
 public class Ressource implements Tickable{
+
+    public static String MATERIAL = "material";
+    public static String FOOD = "food";
+    public static String WORKER = "worker";
+    public static String SCIENCE = "science";
+    public static String CULTURE = "culture";
     private int amount;
     private int income;
     private TextView amount_view;

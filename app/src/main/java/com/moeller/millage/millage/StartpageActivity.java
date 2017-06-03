@@ -52,11 +52,11 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
     }
 
     private void initRessouces(){
-        ressources.put("material", new Ressource(10, 1, (TextView) findViewById(R.id.amount_material), (TextView) findViewById(R.id.income_material)));
-        ressources.put("food", new Ressource(5, 0, (TextView) findViewById(R.id.amount_food), (TextView) findViewById(R.id.income_food)));
-        ressources.put("worker", new Ressource(0, 0, (TextView) findViewById(R.id.amount_worker), (TextView) findViewById(R.id.income_worker)));
-        ressources.put("science", new Ressource(0, 0, (TextView) findViewById(R.id.amount_science), (TextView) findViewById(R.id.income_science)));
-        ressources.put("culture", new Ressource(0, 0, (TextView) findViewById(R.id.amount_culture), (TextView) findViewById(R.id.income_culture)));
+        ressources.put(Ressource.MATERIAL, new Ressource(10, 1, (TextView) findViewById(R.id.amount_material), (TextView) findViewById(R.id.income_material)));
+        ressources.put(Ressource.FOOD, new Ressource(5, 0, (TextView) findViewById(R.id.amount_food), (TextView) findViewById(R.id.income_food)));
+        ressources.put(Ressource.WORKER, new Ressource(0, 0, (TextView) findViewById(R.id.amount_worker), (TextView) findViewById(R.id.income_worker)));
+        ressources.put(Ressource.SCIENCE, new Ressource(0, 0, (TextView) findViewById(R.id.amount_science), (TextView) findViewById(R.id.income_science)));
+        ressources.put(Ressource.CULTURE, new Ressource(0, 0, (TextView) findViewById(R.id.amount_culture), (TextView) findViewById(R.id.income_culture)));
     }
 
     public void tick (){
