@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.moeller.millage.millage.mine.MineTile;
 
@@ -39,6 +41,16 @@ public class MineFragment extends Fragment {
         */
         GridView gridview = (GridView) getView().findViewById(R.id.grid_layout_mine);
         gridview.setAdapter(new ArrayAdapter<MineTile>(getActivity(), R.layout.textview_for_gridview_mine, blueprint));
+
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3){
+                MineTile tile =  (MineTile) adapter.getItemAtPosition(position);
+                tile.onClick();
+                TextView textView = (TextView) v;
+                textView.setText(tile.toString());
+            }
+        });
 
     }
 
