@@ -38,6 +38,9 @@ public class Ressource implements Tickable{
         this.amount += income;
         this.amount_view.setText(Integer.toString(this.amount));
     }
+    public int getAmount(){
+        return this.amount;
+    }
 
 
     public void updateView(){
