@@ -1,4 +1,4 @@
-package com.moeller.millage.millage.mine;
+package com.moeller.millage.millage;
 
 
 /**
