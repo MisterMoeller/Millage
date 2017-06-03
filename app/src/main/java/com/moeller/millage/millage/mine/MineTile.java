@@ -67,7 +67,7 @@ public class MineTile {
      * used in onclick and awards resources based on the depth of the tile
      */
     private void awardResouces(){
-        activity.
+        //TODO: award ressources
     }
 
     /**
