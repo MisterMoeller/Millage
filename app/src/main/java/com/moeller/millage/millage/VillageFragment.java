@@ -22,6 +22,15 @@ import static android.R.attr.id;
 
 
 public class VillageFragment extends Fragment {
+    public final VillageSlot[] blueprint= new VillageSlot[1];
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+        blueprint[0] = new VillageSlot("Farm", 1, getActivity());
+
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,7 +43,6 @@ public class VillageFragment extends Fragment {
         super.onStart();
         Log.d("onStart", "ONSTART");
         //Initialer Aufbau des Spielfelds
-        VillageSlot[] blueprint = {new VillageSlot("Farm", 1), new VillageSlot("Farm", 2), new VillageSlot("Gras", 0), new VillageSlot("Farm", 1) };
         BuildVillage(blueprint);
 
 
@@ -48,14 +56,17 @@ public class VillageFragment extends Fragment {
            Wird mit einem Plan für das neue Spielfeld aufgerufen (ein Stringarray)
            und aktualisiert die Anzeige auf dem Bildschirm
         */
-        GridView gridview = (GridView) getView().findViewById(R.id.grid_layout_village);
+        final GridView gridview = (GridView) getView().findViewById(R.id.grid_layout_village);
         gridview.setAdapter(new ArrayAdapter<VillageSlot>(getActivity(), R.layout.textview_for_gridview_village, blueprint));
+
+        final VillageSlot[] blueprint2 = blueprint;
+
 
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3){
-                VillageSlot slot =  (VillageSlot) adapter.getItemAtPosition(position);
+                final VillageSlot slot =  (VillageSlot) adapter.getItemAtPosition(position);
 
 
                 PopupMenu popup = new PopupMenu(getContext(), v);
@@ -64,6 +75,9 @@ public class VillageFragment extends Fragment {
                 Menu menu = popup.getMenu();
 
                 //VillageSlot Referenz = slot
+                //Baumaterial-Referenz
+                StartpageActivity x = (StartpageActivity) getActivity().getParent();
+                //Ressource material = x.getRessource(Ressource.MATERIAL);
 
                 if (slot.isBuilding()){
                     menu.add("Upgrade");
@@ -71,11 +85,11 @@ public class VillageFragment extends Fragment {
                     menu.add("Abreissen");
                 }
                 else {
-                    menu.add("Haus");
-                    menu.add("Farm");
-                    menu.add("Schule");
-                    menu.add("AuraTower");
-                    menu.add("Kirche");
+                    menu.add(R.string.building_1);
+                    menu.add(R.string.building_2);
+                    menu.add(R.string.building_3);
+                    menu.add(R.string.building_4);
+                    menu.add(R.string.building_5);
                 }
 
                 MenuInflater inflater = popup.getMenuInflater();
@@ -85,8 +99,39 @@ public class VillageFragment extends Fragment {
                     public boolean onMenuItemClick(MenuItem item) {
 
                         if (item.getTitle() == "Upgrade"){
-
+                            slot.upgrade();
+                            gridview.setAdapter(new ArrayAdapter<VillageSlot>(getActivity(), R.layout.textview_for_gridview_village, blueprint2));
                         }
+                        if (item.getTitle() == "Abreissen"){
+                            slot.abreissen();
+                            gridview.setAdapter(new ArrayAdapter<VillageSlot>(getActivity(), R.layout.textview_for_gridview_village, blueprint2));
+                        }
+                        if (item.getTitle() == getResources().getText(R.string.building_1)){
+                            slot.build_1();
+                            gridview.setAdapter(new ArrayAdapter<VillageSlot>(getActivity(), R.layout.textview_for_gridview_village, blueprint2));
+                        }
+                        if (item.getTitle() == getResources().getText(R.string.building_2)){
+                            slot.build_2();
+                            gridview.setAdapter(new ArrayAdapter<VillageSlot>(getActivity(), R.layout.textview_for_gridview_village, blueprint2));
+                        }
+                        if (item.getTitle() == getResources().getText(R.string.building_3)){
+                            slot.build_3();
+                            gridview.setAdapter(new ArrayAdapter<VillageSlot>(getActivity(), R.layout.textview_for_gridview_village, blueprint2));
+                        }
+                        if (item.getTitle() == getResources().getText(R.string.building_4)){
+                            slot.build_4();
+                            gridview.setAdapter(new ArrayAdapter<VillageSlot>(getActivity(), R.layout.textview_for_gridview_village, blueprint2));
+                        }
+                        if (item.getTitle() == getResources().getText(R.string.building_5)){
+                            slot.build_5();
+                            gridview.setAdapter(new ArrayAdapter<VillageSlot>(getActivity(), R.layout.textview_for_gridview_village, blueprint2));
+                        }
+
+
+
+
+
+
 
                         return true;
                     }
