@@ -2,6 +2,8 @@ package com.moeller.millage.millage.mine;
 
 import android.app.Activity;
 
+import com.moeller.millage.millage.StartpageActivity;
+
 /**
  * represents a single clickable tile in the mine
  */
@@ -18,14 +20,14 @@ public class MineTile {
     // amount of clicks necessary to breakthrough
     private int duration = INITIAL_DURATION;
     // reference to the main Activity
-    private Activity activity;
+    private StartpageActivity activity;
 
     /**
      * constructor
      * @param activity
      */
     public MineTile(Activity activity){
-        this.activity = activity;
+        this.activity = (StartpageActivity) activity;
     }
 
     /**
@@ -67,7 +69,7 @@ public class MineTile {
      * used in onclick and awards resources based on the depth of the tile
      */
     private void awardResouces(){
-        //TODO: award ressources
+        activity.getRessource("material").addRessources((int) Math.round(depth * DEPTH_FACTOR));
     }
 
     /**

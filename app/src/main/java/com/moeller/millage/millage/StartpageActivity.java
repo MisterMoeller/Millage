@@ -1,16 +1,12 @@
 package com.moeller.millage.millage;
 
-import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.TextView;
+
+import java.util.HashMap;
 
 /*
         Die Dorf-matrix wird aus einem Stringarray aufgebaut. Die Idee ist, nach einer Änderung am Dorf
@@ -28,7 +24,9 @@ import android.widget.TextView;
         Die verschiedenen Screens können wir mit Fragments machen. Das bedeutet sie sind alle in der
         gleichen Activity und wir müssen da keine Daten hin-und-herschieben.
 */
-public class StartpageActivity extends AppCompatActivity {
+public class StartpageActivity extends AppCompatActivity implements Tickable{
+
+    private HashMap<String, Ressource> ressources = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,53 +44,37 @@ public class StartpageActivity extends AppCompatActivity {
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
 
+        // initialize Ressources
+        initRessouces();
+
         //Starten des ewigen Kreislaufs
-        ressources res = new ressources();
-
-
-        Tick(res);
-
-
-
+        tick();
     }
 
-    void Tick (ressources res){
+    private void initRessouces(){
+        ressources.put("material", new Ressource(10, 1, (TextView) findViewById(R.id.amount_material), (TextView) findViewById(R.id.income_material)));
+        ressources.put("food", new Ressource(5, 0, (TextView) findViewById(R.id.amount_food), (TextView) findViewById(R.id.income_food)));
+        ressources.put("worker", new Ressource(0, 0, (TextView) findViewById(R.id.amount_worker), (TextView) findViewById(R.id.income_worker)));
+        ressources.put("science", new Ressource(0, 0, (TextView) findViewById(R.id.amount_science), (TextView) findViewById(R.id.income_science)));
+        ressources.put("culture", new Ressource(0, 0, (TextView) findViewById(R.id.amount_culture), (TextView) findViewById(R.id.income_culture)));
+    }
+
+    public void tick (){
         Log.d("Startpage_Activity", "Cylce_Start");
 
         //Einkommen auszahlen
-        res.Income();
+        for(Ressource res : ressources.values()){
+            res.tick();
+        }
+    }
 
-        //Amount-Werte aktualisieren
-        TextView amount_material = (TextView) findViewById(R.id.amount_material);
-        amount_material.setText(String.valueOf(res.material));
-
-        TextView amount_food = (TextView) findViewById(R.id.amount_food);
-        amount_food.setText(String.valueOf(res.food));
-
-        TextView amount_worker = (TextView) findViewById(R.id.amount_worker);
-        amount_worker.setText(String.valueOf(res.worker));
-
-        TextView amount_science = (TextView) findViewById(R.id.amount_science);
-        amount_science.setText(String.valueOf(res.science));
-
-        TextView amount_culture = (TextView) findViewById(R.id.amount_culture);
-        amount_culture.setText(String.valueOf(res.culture));
-
-        //Income-Werte aktualisieren
-        TextView income_material = (TextView) findViewById(R.id.income_material);
-        income_material.setText(String.valueOf(res.income_material));
-
-        TextView income_food = (TextView) findViewById(R.id.income_food);
-        income_food.setText(String.valueOf(res.income_food));
-
-        TextView income_worker = (TextView) findViewById(R.id.income_worker);
-        income_worker.setText(String.valueOf(res.income_worker));
-
-        TextView income_science = (TextView) findViewById(R.id.income_science);
-        income_science.setText(String.valueOf(res.income_science));
-
-        TextView income_culture = (TextView) findViewById(R.id.income_culture);
-        income_culture.setText(String.valueOf(res.income_culture));
+    /**
+     * returns teh ressource or null if not available
+     * @param name
+     * @return
+     */
+    public Ressource getRessource(String name){
+        return ressources.get(name) != null?ressources.get(name): null;
     }
 }
 
