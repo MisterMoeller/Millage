@@ -1,6 +1,7 @@
 package com.moeller.millage.millage.mine;
 
 import android.app.Activity;
+import android.widget.Toast;
 
 import com.moeller.millage.millage.StartpageActivity;
 
@@ -63,6 +64,11 @@ public class MineTile {
     private void onBreakthrough(){
         this.depth++;
         this.duration = (int) Math.round(INITIAL_DURATION * this.depth * DEPTH_FACTOR);
+        if(doesReceiveArtefact()){
+            Toast toast = Toast.makeText(activity.getApplicationContext(), "you have received an artefect", Toast.LENGTH_LONG);
+            toast.show();
+        }
+
     }
 
     /**
@@ -70,6 +76,11 @@ public class MineTile {
      */
     private void awardResouces(){
         activity.getRessource("material").addRessources((int) Math.round(depth * DEPTH_FACTOR));
+    }
+
+    private boolean doesReceiveArtefact(){
+//        return (Math.random() * 100) < (this.depth * DEPTH_FACTOR);
+        return true;
     }
 
     /**
