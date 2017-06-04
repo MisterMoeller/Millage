@@ -2,7 +2,7 @@
     <string name="app_name">Millage</string>
 
     <!-- Ressourcenbereich oben -->
-    <string name="Resourcen">Resourcen</string>
+    <string name="Resourcen">Ressourcen</string>
     <string name="material">Baumaterial</string>
     <string name="food">Nahrung</string>
     <string name="worker">Arbeiter</string>
@@ -11,5 +11,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Namen der Gebäude in Village-->
+    <string name="building_1">Haus</string>
+    <string name="building_2">Farm</string>
+    <string name="building_3">Schule</string>
+    <string name="building_4">AuraTower</string>
+    <string name="building_5">Kirche</string>
+
 
 </resources>
