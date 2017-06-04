@@ -3,17 +3,26 @@ package com.moeller.millage.millage.Village;
 import android.content.Context;
 
 import com.moeller.millage.millage.R;
+import com.moeller.millage.millage.Ressource;
+import com.moeller.millage.millage.StartpageActivity;
+
+import java.util.Map;
 
 public class VillageSlot {
     String inhalt;
     int level;
-    Context context;
+    StartpageActivity context;
+
+    //Referenz auf die Ressourcen
+     Ressource food;
+    Map <String, Ressource> ressources;
 
 
     public VillageSlot(String str, int lvl, Context context) {
         inhalt = str;
         level = lvl;
-        this.context = context;
+        this.context = (StartpageActivity) context;
+        ressources = this.context.getAllRessources();
     }
 
 
@@ -38,8 +47,14 @@ public class VillageSlot {
         return level * 2;
     }
 
-    public void upgrade() {
+    public void upgrade(String str) {
         level = level + 1;
+        if (str == context.getResources().getText(R.string.building_2).toString()){
+            ressources.get(Ressource.FOOD).changeIncome(level);
+        }
+    }
+    public String getBuilding (){
+        return this.inhalt;
     }
 
     public void abreissen() {
@@ -55,6 +70,7 @@ public class VillageSlot {
     public void build_2() {
         inhalt = context.getResources().getText(R.string.building_2).toString();
         level = 1;
+        ressources.get(Ressource.FOOD).changeIncome(1);
     }
 
     public void build_3() {

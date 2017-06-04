@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /*
         Die Dorf-matrix wird aus einem Stringarray aufgebaut. Die Idee ist, nach einer Änderung am Dorf
@@ -62,6 +63,10 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
         ressources.put(Ressource.WORKER, new Ressource(0, 0, (TextView) findViewById(R.id.amount_worker), (TextView) findViewById(R.id.income_worker)));
         ressources.put(Ressource.SCIENCE, new Ressource(0, 0, (TextView) findViewById(R.id.amount_science), (TextView) findViewById(R.id.income_science)));
         ressources.put(Ressource.CULTURE, new Ressource(0, 0, (TextView) findViewById(R.id.amount_culture), (TextView) findViewById(R.id.income_culture)));
+    }
+
+    public Map <String, Ressource> getAllRessources() {
+        return this.ressources;
     }
 
     public void tick (){

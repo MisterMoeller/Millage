@@ -72,4 +72,8 @@ public class Ressource implements Tickable{
         updateView();
         return true;
     }
+    public void changeIncome(int amount){
+        this.income = income + amount;
+        updateView();
+    }
 }
