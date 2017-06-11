@@ -16,20 +16,19 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Philipp on 10.06.2017.
+ * parses artefacts from xml
  */
-
 public class ArtefactParser {
     private static String ARTEFACT = "artefact";
     private static String ARTEFACTS = "artefacts";
-    private static String ns = null;
+    private static String NAMESPACE = null;
 
     public static class Artefact {
 
-        public String title;
-        public List<String> preConditions;
-        public Map<String, Integer> costs;
-        public String effect;
+        private String title;
+        private List<String> preConditions;
+        private Map<String, Integer> costs;
+        private String effect;
 
         private Artefact(String title, List<String> preConditions, Map<String, Integer> costs, String effect){
             this.title = title;
@@ -40,22 +39,16 @@ public class ArtefactParser {
     }
 
 
-    public List parse(InputStream in) throws XmlPullParserException, IOException {
-        try{
-            XmlPullParser parser = Xml.newPullParser();
-            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            parser.setInput(in, ns);
-            parser.nextTag();
-            return readArtefacts(parser);
-        } finally {
-            in.close();
-        }
+    public List parse(XmlPullParser parser) throws XmlPullParserException, IOException {
+        parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+        parser.nextTag();
+        return readArtefacts(parser);
     }
 
     private List readArtefacts(XmlPullParser parser) throws XmlPullParserException, IOException {
         List artefacts = new ArrayList();
 
-        parser.require(XmlPullParser.START_TAG, ns, ARTEFACTS);
+        parser.require(XmlPullParser.START_TAG, NAMESPACE, ARTEFACTS);
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -72,7 +65,7 @@ public class ArtefactParser {
     }
 
     private Artefact readArtefact(XmlPullParser parser) throws XmlPullParserException, IOException {
-        parser.require(XmlPullParser.START_TAG, ns, ARTEFACT);
+        parser.require(XmlPullParser.START_TAG, NAMESPACE, ARTEFACT);
 
         String title = null;
         List<String> preConditions = null;
@@ -101,7 +94,7 @@ public class ArtefactParser {
 
     private Map<String, Integer>readCosts(XmlPullParser parser) throws IOException, XmlPullParserException{
         HashMap<String, Integer> map = new HashMap<>();
-        parser.require(XmlPullParser.START_TAG, ns, "costs");
+        parser.require(XmlPullParser.START_TAG, NAMESPACE, "costs");
         while (parser.next() != XmlPullParser.END_TAG){
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -126,7 +119,7 @@ public class ArtefactParser {
 
     private List readPreConditions(XmlPullParser parser) throws IOException, XmlPullParserException{
         List<String> list = new LinkedList<>();
-        parser.require(XmlPullParser.START_TAG, ns, "preConditions");
+        parser.require(XmlPullParser.START_TAG, NAMESPACE, "preConditions");
         while(parser.next() != XmlPullParser.END_TAG){
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -142,9 +135,9 @@ public class ArtefactParser {
     }
 
     private String readString(XmlPullParser parser, String tag) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, tag);
+        parser.require(XmlPullParser.START_TAG, NAMESPACE, tag);
         String title = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, tag);
+        parser.require(XmlPullParser.END_TAG, NAMESPACE, tag);
         return title;
     }
 

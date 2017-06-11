@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<artefacts>
+    <artefact>
+        <title>Schaufel</title>
+        <preConditions>
+        </preConditions>
+        <costs>
+            <material>10</material>
+            <food>10</food>
+            <worker>0</worker>
+            <science>0</science>
+            <culture>0</culture>
+        </costs>
+        <effect>some effect</effect>
+    </artefact>
+    <artefact>
+        <title>Eimer</title>
+        <preConditions>
+            <preCondition>Schaufel</preCondition>
+        </preConditions>
+        <costs>
+            <material>10</material>
+            <food>10</food>
+            <worker>0</worker>
+            <science>0</science>
+            <culture>0</culture>
+        </costs>
+        <effect>some more effects</effect>
+    </artefact>
+</artefacts>
