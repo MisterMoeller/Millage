@@ -1,12 +1,17 @@
 package com.moeller.millage.millage;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.moeller.millage.millage.research.ArtefactParser;
+import com.moeller.millage.millage.research.Artefacts;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -28,7 +33,9 @@ import java.util.Map;
 public class StartpageActivity extends AppCompatActivity implements Tickable{
 
     private HashMap<String, Ressource> ressources = new HashMap<>();
+    private Artefacts artefacts;
 
+    private ArtefactParser artefactParser = new ArtefactParser();
     private TickTimer tickTimer = new TickTimer();
 
     @Override
@@ -50,6 +57,9 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
         // initialize Ressources
         initRessouces();
 
+        // parse Artefacts
+        parseArtefacts();
+
         // Tickables dem Prozess übergeben
         tickTimer.add(this);
 
@@ -63,6 +73,15 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
         ressources.put(Ressource.WORKER, new Ressource(0, 0, (TextView) findViewById(R.id.amount_worker), (TextView) findViewById(R.id.income_worker)));
         ressources.put(Ressource.SCIENCE, new Ressource(0, 0, (TextView) findViewById(R.id.amount_science), (TextView) findViewById(R.id.income_science)));
         ressources.put(Ressource.CULTURE, new Ressource(0, 0, (TextView) findViewById(R.id.amount_culture), (TextView) findViewById(R.id.income_culture)));
+    }
+
+    private void parseArtefacts(){
+        try {
+            artefacts = new Artefacts(artefactParser.parse(this.getResources().getXml(R.xml.artefacts)));
+        } catch (Exception e){
+            Log.d("ArtefactParsing", "error parsing artefacts");
+            e.printStackTrace();
+        }
     }
 
     public Map <String, Ressource> getAllRessources() {
@@ -85,6 +104,10 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
      */
     public Ressource getRessource(String name){
         return ressources.get(name) != null?ressources.get(name): null;
+    }
+
+    public Artefacts getArtefacts(){
+        return this.artefacts;
     }
 }
 

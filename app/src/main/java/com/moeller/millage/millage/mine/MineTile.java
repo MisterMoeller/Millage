@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.widget.Toast;
 
 import com.moeller.millage.millage.StartpageActivity;
+import com.moeller.millage.millage.research.ArtefactParser;
 
 /**
  * represents a single clickable tile in the mine
@@ -65,7 +66,14 @@ public class MineTile {
         this.depth++;
         this.duration = (int) Math.round(INITIAL_DURATION * this.depth * DEPTH_FACTOR);
         if(doesReceiveArtefact()){
-            Toast toast = Toast.makeText(activity.getApplicationContext(), "you have received an artefect", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(activity.getApplicationContext(), "", Toast.LENGTH_LONG);
+            ArtefactParser.Artefact artefact = activity.getArtefacts().getRandomAvailableArtefact();
+            if(artefact == null){
+                toast.setText("there are no available artefats currently");
+            } else {
+                toast.setText("you have received a " + artefact.getTitle());
+                activity.getArtefacts().addArtefact(artefact);
+            }
             toast.show();
         }
 

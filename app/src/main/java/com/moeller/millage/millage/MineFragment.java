@@ -33,12 +33,12 @@ public class MineFragment extends Fragment {
     }
 
 
-
+    /**
+     * Wird mit einem Plan für das neue Spielfeld aufgerufen (ein Stringarray)
+     * und aktualisiert die Anzeige auf dem Bildschirm
+     * @param blueprint
+     */
     public void Buildmine(MineTile[] blueprint) {
-        /*
-           Wird mit einem Plan für das neue Spielfeld aufgerufen (ein Stringarray)
-           und aktualisiert die Anzeige auf dem Bildschirm
-        */
         GridView gridview = (GridView) getView().findViewById(R.id.grid_layout_mine);
         gridview.setAdapter(new ArrayAdapter<MineTile>(getActivity(), R.layout.textview_for_gridview_mine, blueprint));
 
