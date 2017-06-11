@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.moeller.millage.millage.research.ArtefactParser;
+import com.moeller.millage.millage.research.Artefacts;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +33,7 @@ import java.util.Map;
 public class StartpageActivity extends AppCompatActivity implements Tickable{
 
     private HashMap<String, Ressource> ressources = new HashMap<>();
-    private List<ArtefactParser.Artefact> allArtefacts;
+    private Artefacts artefacts;
 
     private ArtefactParser artefactParser = new ArtefactParser();
     private TickTimer tickTimer = new TickTimer();
@@ -76,7 +77,7 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
 
     private void parseArtefacts(){
         try {
-            allArtefacts = artefactParser.parse(this.getResources().getXml(R.xml.artefacts));
+            artefacts = new Artefacts(artefactParser.parse(this.getResources().getXml(R.xml.artefacts)));
         } catch (Exception e){
             Log.d("ArtefactParsing", "error parsing artefacts");
             e.printStackTrace();
@@ -103,6 +104,10 @@ public class StartpageActivity extends AppCompatActivity implements Tickable{
      */
     public Ressource getRessource(String name){
         return ressources.get(name) != null?ressources.get(name): null;
+    }
+
+    public Artefacts getArtefacts(){
+        return this.artefacts;
     }
 }
 

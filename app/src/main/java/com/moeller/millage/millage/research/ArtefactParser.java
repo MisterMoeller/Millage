@@ -1,5 +1,6 @@
 package com.moeller.millage.millage.research;
 
+import android.util.Log;
 import android.util.Xml;
 
 import com.moeller.millage.millage.Ressource;
@@ -36,12 +37,28 @@ public class ArtefactParser {
             this. costs = costs;
             this.effect = effect;
         }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public List<String> getPreConditions() {
+            return preConditions;
+        }
+
+        public Map<String, Integer> getCosts() {
+            return costs;
+        }
+
+        public String getEffect() {
+            return effect;
+        }
     }
 
 
     public List parse(XmlPullParser parser) throws XmlPullParserException, IOException {
-        parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-        parser.nextTag();
+        parser.next();
+        parser.next();
         return readArtefacts(parser);
     }
 
@@ -57,6 +74,7 @@ public class ArtefactParser {
             // Starts by looking for the entry tag
             if (name.equals(ARTEFACT)) {
                 artefacts.add(readArtefact(parser));
+                Log.d("ArtefactParser", "artefact added");
             } else {
                 skip(parser);
             }
