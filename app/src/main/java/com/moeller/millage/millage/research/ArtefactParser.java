@@ -94,17 +94,33 @@ public class ArtefactParser {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
             }
-            String name = parser.getName();
-            if (name.equals("title")) {
-                title = readString(parser, "title");
-            } else if (name.equals("preConditions")) {
-                preConditions = readPreConditions(parser);
-            } else if (name.equals("costs")) {
-                costs = readCosts(parser);
-            } else if (name.equals("effect")) {
-                effect = readString(parser, "effect");
-            } else {
-                skip(parser);
+//            String name = parser.getName();
+//            if (name.equals("title")) {
+//                title = readString(parser, "title");
+//            } else if (name.equals("preConditions")) {
+//                preConditions = readPreConditions(parser);
+//            } else if (name.equals("costs")) {
+//                costs = readCosts(parser);
+//            } else if (name.equals("effect")) {
+//                effect = readString(parser, "effect");
+//            } else {
+//                skip(parser);
+//            }
+            switch(parser.getName()){
+                case "title":
+                    title = readString(parser, title);
+                    break;
+                case "preConditions":
+                    preConditions = readPreConditions(parser);
+                    break;
+                case "costs":
+                    costs = readCosts(parser);
+                    break;
+                case "effect":
+                    effect = readString(parser, "effect");
+                    break;
+                default:
+                    skip(parser);
             }
         }
         return new Artefact(title, preConditions, costs, effect);
