@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kosten_menu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/village_background_slot">
+
+    <!-- Upgrade -->
+    <LinearLayout
+        android:id="@+id/layout_upgrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_vertical_villagemenu"
+        android:orientation="horizontal">
+        >
+
+        <TextView
+            android:layout_width="@dimen/spacing_horizontal_villagemenu_left"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="upgrade" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- material-Reihe -->
+            <LinearLayout
+                android:id="@+id/upgrade_layout_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/material" />
+
+                <TextView
+                    android:id="@+id/upgrade_kosten_material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- food-Reihe -->
+            <LinearLayout
+                android:id="@+id/upgrade_layout_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/food" />
+
+                <TextView
+                    android:id="@+id/upgrade_kosten_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- science-Reihe -->
+            <LinearLayout
+                android:id="@+id/upgrade_layout_science"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/science" />
+
+                <TextView
+                    android:id="@+id/upgrade_kosten_science"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- culture-Reihe -->
+            <LinearLayout
+                android:id="@+id/upgrade_layout_culture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/culture" />
+
+                <TextView
+                    android:id="@+id/upgrade_kosten_culture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- building_1 -->
+    <LinearLayout
+        android:id="@+id/layout_building_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_vertical_villagemenu"
+        android:orientation="horizontal">
+        >
+
+        <TextView
+            android:layout_width="@dimen/spacing_horizontal_villagemenu_left"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/building_1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- material-Reihe -->
+            <LinearLayout
+                android:id="@+id/building_1_layout_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/material" />
+
+                <TextView
+                    android:id="@+id/building_1_kosten_material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- food-Reihe -->
+            <LinearLayout
+                android:id="@+id/building_1_layout_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/food" />
+
+                <TextView
+                    android:id="@+id/building_1_kosten_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- science-Reihe -->
+            <LinearLayout
+                android:id="@+id/building_1_layout_science"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/science" />
+
+                <TextView
+                    android:id="@+id/building_1_kosten_science"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- culture-Reihe -->
+            <LinearLayout
+                android:id="@+id/building_1_layout_culture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/culture" />
+
+                <TextView
+                    android:id="@+id/building_1_kosten_culture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- building_2 -->
+    <LinearLayout
+        android:id="@+id/layout_building_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_vertical_villagemenu"
+        android:orientation="horizontal">
+        >
+
+        <TextView
+            android:layout_width="@dimen/spacing_horizontal_villagemenu_left"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/building_2" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- material-Reihe -->
+            <LinearLayout
+                android:id="@+id/building_2_layout_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/material" />
+
+                <TextView
+                    android:id="@+id/building_2_kosten_material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- food-Reihe -->
+            <LinearLayout
+                android:id="@+id/building_2_layout_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/food" />
+
+                <TextView
+                    android:id="@+id/building_2_kosten_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- science-Reihe -->
+            <LinearLayout
+                android:id="@+id/building_2_layout_science"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/science" />
+
+                <TextView
+                    android:id="@+id/building_2_kosten_science"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+            <!-- culture-Reihe -->
+            <LinearLayout
+                android:id="@+id/building_2_layout_culture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="@dimen/spacing_horizontal_villagemenu_right"
+                    android:src="@mipmap/culture" />
+
+                <TextView
+                    android:id="@+id/building_2_kosten_culture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1123123" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/layout_raze"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_vertical_villagemenu"
+        android:text="@string/raze" />
+
+
+</LinearLayout>

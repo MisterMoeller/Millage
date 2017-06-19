@@ -9,10 +9,8 @@
     <string name="science">Forschung</string>
     <string name="culture">Kultur</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <!-- Namen der Gebäude in Village-->
+    <string name="raze">Abreissen</string>
     <string name="building_1">Haus</string>
     <string name="building_2">Farm</string>
     <string name="building_3">Schule</string>

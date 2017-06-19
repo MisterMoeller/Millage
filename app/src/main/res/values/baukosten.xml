@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Haus-->
+    <integer name="building_1_material">15</integer>
+    <integer name="building_1_food">8</integer>
+    <integer name="building_1_science">0</integer>
+    <integer name="building_1_culture">0</integer>
+    <integer name="building_1_kostenfaktor">120</integer>
+
+    <!-- Farm -->
+    <integer name="building_2_material">15</integer>
+    <integer name="building_2_food">0</integer>
+    <integer name="building_2_science">0</integer>
+    <integer name="building_2_culture">0</integer>
+    <integer name="building_2_kostenfaktor">130</integer>
+
+
+</resources>

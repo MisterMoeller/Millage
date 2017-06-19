@@ -49,29 +49,17 @@ public class Ressource implements Tickable{
     }
 
     /**
-     * adds amount to the ressource
+     * changes amount of the ressource
      * @param amount
      * @return true on success
      */
-    public boolean addRessources(int amount){
+    public boolean changeRessources(int amount){
         this.amount += amount;
         updateView();
         return true;
     }
 
-    /**
-     * subtracts amount of the ressouce if enough is available
-     * @param amount
-     * @return true on success
-     */
-    public boolean subRessources(int amount){
-        if(amount > this.amount){
-            return false;
-        }
-        this.amount -= amount;
-        updateView();
-        return true;
-    }
+
     public void changeIncome(int amount){
         this.income = income + amount;
         updateView();
