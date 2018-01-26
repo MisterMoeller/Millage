@@ -94,18 +94,6 @@ public class ArtefactParser {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
             }
-//            String name = parser.getName();
-//            if (name.equals("title")) {
-//                title = readString(parser, "title");
-//            } else if (name.equals("preConditions")) {
-//                preConditions = readPreConditions(parser);
-//            } else if (name.equals("costs")) {
-//                costs = readCosts(parser);
-//            } else if (name.equals("effect")) {
-//                effect = readString(parser, "effect");
-//            } else {
-//                skip(parser);
-//            }
             switch(parser.getName()){
                 case "title":
                     title = readString(parser, title);
