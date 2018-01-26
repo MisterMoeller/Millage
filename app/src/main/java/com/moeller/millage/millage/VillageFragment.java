@@ -42,8 +42,6 @@ public class VillageFragment extends Fragment {
         Log.d("onStart", "ONSTART");
         //Initialer Aufbau des Spielfelds
         BuildVillage(blueprint);
-
-
     }
 
 
