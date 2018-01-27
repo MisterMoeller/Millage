@@ -27,7 +27,11 @@ public class MineFragment extends Fragment {
         super.onStart();
         Log.d("onStart", "ONSTART");
         //Initialer Aufbau des Spielfelds
-        MineTile[] blueprint = {new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity())};
+        MineTile[] blueprint = new MineTile[Integer.valueOf(getResources().getInteger(R.integer.max_amount_of_tiles))];
+        for(int i = 0; i <  blueprint.length; i++){
+            blueprint[i] = new MineTile(getActivity());
+        }
+                //{new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity()), new MineTile(getActivity())};
         Buildmine(blueprint);
 
     }

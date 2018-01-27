@@ -1,8 +1,10 @@
 package com.moeller.millage.millage.mine;
 
 import android.app.Activity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.moeller.millage.millage.R;
 import com.moeller.millage.millage.StartpageActivity;
 import com.moeller.millage.millage.research.ArtefactParser;
 
@@ -13,14 +15,14 @@ public class MineTile {
 
 
     // factor used to calculate rewards for clicking and new durations on breakthrough
-    private final double DEPTH_FACTOR = 1.5;
+    private double DEPTH_FACTOR;
     // initial duration and base of future duration calculation
-    private final int INITIAL_DURATION = 10;
+    private int INITIAL_DURATION;
 
     // "level" of the tile
     private int depth = 1;
     // amount of clicks necessary to breakthrough
-    private int duration = INITIAL_DURATION;
+    private int duration;
     // reference to the main Activity
     private StartpageActivity activity;
 
@@ -30,6 +32,9 @@ public class MineTile {
      */
     public MineTile(Activity activity){
         this.activity = (StartpageActivity) activity;
+        this.DEPTH_FACTOR = Double.valueOf(this.activity.getResources().getString(R.string.mine_depth_factor));
+        this.INITIAL_DURATION = Integer.valueOf(this.activity.getResources().getInteger(R.integer.mine_initial_duration));
+        this.duration = this.INITIAL_DURATION;
     }
 
     /**
