@@ -12,6 +12,9 @@
     <dimen name="village_plot_width">60dp</dimen>
     <dimen name="verticalSpacing_village">8dp</dimen>
     <dimen name="village_textsize">10sp</dimen>
+    <dimen name="spacing_vertical_villagemenu">10dp</dimen>
+    <dimen name="spacing_horizontal_villagemenu_left">80dp</dimen>
+    <dimen name="spacing_horizontal_villagemenu_right">25dp</dimen>
 
     <!-- Mine-grid-->
     <dimen name="mine_plot_height">60dp</dimen>

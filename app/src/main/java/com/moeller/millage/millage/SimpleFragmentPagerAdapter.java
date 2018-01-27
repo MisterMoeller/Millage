@@ -4,7 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
-import android.view.ViewGroup;
+
+import com.moeller.millage.millage.Village.VillageFragment;
 
 
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {

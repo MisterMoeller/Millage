@@ -83,7 +83,7 @@ public class MineTile {
      * used in onclick and awards resources based on the depth of the tile
      */
     private void awardResouces(){
-        activity.getRessource("material").addRessources((int) Math.round(depth * DEPTH_FACTOR));
+        activity.getRessource("material").changeRessources((int) Math.round(depth * DEPTH_FACTOR));
     }
 
     private boolean doesReceiveArtefact(){
