@@ -1,7 +1,6 @@
 package com.moeller.millage.millage.mine;
 
 import android.app.Activity;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.moeller.millage.millage.R;
@@ -16,13 +15,13 @@ public class MineTile {
 
     // factor used to calculate rewards for clicking and new durations on breakthrough
     private double DEPTH_FACTOR;
-    // initial duration and base of future duration calculation
+    // initial digsLeft and base of future digsLeft calculation
     private int INITIAL_DURATION;
 
     // "level" of the tile
     private int depth = 1;
     // amount of clicks necessary to breakthrough
-    private int duration;
+    private int digsLeft;
     // reference to the main Activity
     private StartpageActivity activity;
 
@@ -34,7 +33,7 @@ public class MineTile {
         this.activity = (StartpageActivity) activity;
         this.DEPTH_FACTOR = Double.valueOf(this.activity.getResources().getString(R.string.mine_depth_factor));
         this.INITIAL_DURATION = Integer.valueOf(this.activity.getResources().getInteger(R.integer.mine_initial_duration));
-        this.duration = this.INITIAL_DURATION;
+        this.digsLeft = this.INITIAL_DURATION;
     }
 
     /**
@@ -57,9 +56,9 @@ public class MineTile {
      * onClick function
      */
     public void onClick(){
-        this.duration --;
+        this.digsLeft--;
         awardResouces();
-        if(this.duration == 0){
+        if(this.digsLeft == 0){
             onBreakthrough();
         }
     }
@@ -69,7 +68,7 @@ public class MineTile {
      */
     private void onBreakthrough(){
         this.depth++;
-        this.duration = (int) Math.round(INITIAL_DURATION * this.depth * DEPTH_FACTOR);
+        this.digsLeft = (int) Math.round(INITIAL_DURATION * this.depth * DEPTH_FACTOR);
         if(doesReceiveArtefact()){
             Toast toast = Toast.makeText(activity.getApplicationContext(), "", Toast.LENGTH_LONG);
             ArtefactParser.Artefact artefact = activity.getArtefacts().getRandomAvailableArtefact();
@@ -101,7 +100,7 @@ public class MineTile {
      * @return
      */
     public String toString(){
-        return "D: " + Integer.toString(this.depth) + " [" + Integer.toString(this.duration) + "]";
+        return "D: " + Integer.toString(this.depth) + " [" + Integer.toString(this.digsLeft) + "]";
     }
 
 }
